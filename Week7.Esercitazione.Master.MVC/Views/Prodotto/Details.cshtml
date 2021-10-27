@@ -1,0 +1,30 @@
+﻿@model ProdottoViewModel
+<h1>Ecco i dettagli del prodotto @Model.IdProd @Model.Descrizione :</h1>
+<p>Descrizione: @Model.Descrizione</p>
+
+<p>Di Seguito l'elenco dei prodotti presenti</p>
+
+<table class="table table-hover table-bordered table table-striped">
+    <thead>
+        <tr>
+            <th>Descrizione</th>
+            <th>Prezzo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Prodotti)
+        {
+            <tr>
+                <td>@item.Descrizione</td>
+                <td>@item.PrezzoPubblico</td>
+                <th>
+                    <a asp-controller="Prodotto" asp-action="Details" asp-route-id="@item.IdProd" class="btn btn-primary">Visualizza Dettagli</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+      
+    </tfoot>
+</table>
